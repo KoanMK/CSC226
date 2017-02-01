@@ -3,9 +3,12 @@ package SelectMedian;
 import java.util.Arrays;
 
 /**
+ * Template:
  * @author Rahnuma Islam Nishat
  * January 20, 2017
  * CSC 226 - Spring 2017
+ *
+ * Code by Nigel Decontie
  */
 public class SelectMedian {
     
