@@ -100,9 +100,9 @@ public class MWST{
 
 		int numVerts = G.length;
 
-		boolean[] visited = new boolean[numVerts];				//Array for keeping track of visited vertices.
+		boolean[] visited = new boolean[numVerts];			//Array for keeping track of visited vertices.
 		PriorityQueue<Edge> pq = new PriorityQueue<Edge>();		//PQ of edges.
-		Queue<Edge> mst = new LinkedList<Edge>();				//MST to which edges will be added.
+		Queue<Edge> mst = new LinkedList<Edge>();			//MST to which edges will be added.
 
 		//Start at vertex 0.
 		visit(G, 0, visited, pq);
