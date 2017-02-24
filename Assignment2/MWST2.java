@@ -46,46 +46,9 @@
 import java.util.Scanner;
 import java.io.File;
 import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.LinkedList;
 
-public class MWST{
+public class MWST2{
 
-	/*
-	* Edge class.
-	* Used by the mwst method to keep track of edges between vertices.
-	*/
-	static class Edge implements Comparable<Edge>{
-		
-		public int to;
-		public int from;
-		public int weight;
-
-		public Edge(int a, int b, int c){
-			this.to = a;
-			this.from = b;
-			this.weight = c;
-		}
-
-		public int getWeight() {return weight;}
-		public int getDest() {return to;}
-		public int getPar() {return from;}
-
-		public boolean equals(Edge e) {
-			return this.getWeight() == e.getWeight();
-		}
-
-		public int compareTo(Edge e) {
-			if(this.equals(e)) {
-				return 0;
-			} else if (getWeight() > e. getWeight()) {
-				return 1;
-			} else {
-				return -1;
-			}
-		}
-		
-	}
 
 	/* mwst(G)
 		Given an adjacency matrix for graph G, return the total weight
@@ -97,47 +60,44 @@ public class MWST{
 		No entries of G will be negative.
 	*/
 	static int mwst(int[][] G){
-
 		int numVerts = G.length;
-
-		boolean[] visited = new boolean[numVerts];				//Array for keeping track of visited vertices.
-		PriorityQueue<Edge> pq = new PriorityQueue<Edge>();		//PQ of edges.
-		Queue<Edge> mst = new LinkedList<Edge>();				//MST to which edges will be added.
-
-		//Start at vertex 0.
-		visit(G, 0, visited, pq);
-
-		//Continue checking vertices until the PQ is empty or the MST is full.
-		while(!pq.isEmpty() && mst.size() < numVerts - 1) {
-			Edge e = pq.remove();
-			int v = e.from, w = e.to;
-			if(visited[v] && visited[w]) continue;
-			mst.add(e);
-			if (!visited[v]) visit(G, v, visited, pq);
-			if (!visited[w]) visit(G, w, visited, pq);
-		}
-
-		//Adding up the sum of all the edges in the MST.
+		int numEdges = numVerts-1;
+		int[] visited = new int[numVerts];
+		int min;
+		int u = 0; 
+		int v = 0;
 		int totalWeight = 0;
-		for(Edge e : mst) {
-			totalWeight += e.getWeight();
-		}
 
-		return totalWeight;
-	}
-
-	/*
-	* Visit method.
-	* Used by the mwst method to visit vertices in the adjacency matrix.
-	*/
-	private static void visit(int[][] G, int v, boolean[] visited, PriorityQueue<Edge> pq) {
-		visited[v] = true;
-		for(int i = 0; i < G.length; i++) {
-			if(!visited[i] && G[v][i] != 0) {
-				pq.add(new Edge(i, v, G[v][i]));
+		for(int i = 0; i < numVerts; i++) {
+			visited[i] = 0;
+			for(int j = 0; j < numVerts; j++) {
+				if(G[i][j] == 0) {
+					G[i][j] = Integer.MAX_VALUE;
+				}
 			}
 		}
+		visited[0] = 1;
+		for(int counter = 0; counter < numEdges; counter++) {
+			min = Integer.MAX_VALUE;
+			for(int i = 0; i < numVerts; i++) {
+				if(visited[i] == 1) {
+					for(int j = 0; j < numVerts; j++) {
+						if(visited[j] != 1) {
+							if(min > G[i][j]) {
+								min = G[i][j];
+								u = i;
+								v = j;
+							}
+						}
+					}
+				}
+			}
+			visited[v] = 1;
+			totalWeight += min;
+		}
+		return totalWeight;	
 	}
+
 
 	public static void main(String[] args){
 		/* Code to test your implementation */
