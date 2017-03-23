@@ -1,12 +1,6 @@
-/* 
-
-Rahnuma Islam Nishat - 08/02/2014
-*/
-
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-
 
 public class KMP {
 
@@ -57,12 +51,9 @@ public class KMP {
 				if(index >= text.length())System.out.println(args[i]+ " was not found.");
 				else System.out.println("The string \""+args[i]+ "\" was found at index "+index + ".");
 			}
-			//System.out.println(text);	
+			
 		}else{
 			System.out.println("usage: java SubstringSearch <filename> <pattern_1> <pattern_2> ... <pattern_n>.");
 		}	
 	}
 }
-
-
-
