@@ -1,11 +1,11 @@
-#CSC 226 - ASSIGNMENT 1
+# CSC 226 - ASSIGNMENT 1
 
-##**LinearSelect**
+## **LinearSelect**
 
 Assignment 1 for CSC 226 at Uvic.
 O(n) time selection algorithm.
 
-##**A1 Written**
+## **A1 Written**
 
 Theoretical portion of assignment one. 
 Includes written answers to questions involving AVL 
