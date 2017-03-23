@@ -7,7 +7,7 @@
 
 ## KMP.java
 
-Java implementation of the Knuth-Morris-Pratt algorithm for finding the substrings in a text file.  
+Java implementation of the Knuth-Morris-Pratt algorithm for finding substrings in a text file.  
 Reads text files and outputs whether or not any matches were found and where.  
 Overall time complexity of O(n+m).
 
