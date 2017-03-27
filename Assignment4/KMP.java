@@ -1,3 +1,8 @@
+/*
+	Nigel Decontie
+	V00853112
+*/
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,7 +32,10 @@ public class KMP {
 		for(i = 0, j = 0; i < N && j < M; i++)
 			j = dfa[txt.charAt(i)][j];
 		if(j == M) return i - M;
-		else return N;
+		else {
+			System.out.println("The length of the text is: " + N);
+			return N;
+		}
 	}
 	
   	public static void main(String[] args) throws FileNotFoundException{
