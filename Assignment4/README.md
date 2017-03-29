@@ -3,7 +3,8 @@
 
 ## A4 Written
 
-//Not completed yet.
+Written answers to maximum flow questions, KMP DFAs, the Boyer-Moore string matching algorithm, the  
+Ford-Fulkerson algorithm and other flow-capacity graph theory questions.
 
 ## KMP.java
 
